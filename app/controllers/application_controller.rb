@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    "Maybe specify the address?"
   end
 
 end
