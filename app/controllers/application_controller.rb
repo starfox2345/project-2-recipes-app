@@ -11,8 +11,4 @@ class ApplicationController < Sinatra::Base
     "Welcome!"
   end
 
-  get "/recipes" do
-    @recipes = Recipe.all
-      erb :recipes
-  end
 end
