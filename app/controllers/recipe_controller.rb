@@ -22,14 +22,16 @@ class RecipeController < ApplicationController
     end
 
     get "/recipes/:id/edit" do
+       @recipe = Recipe.find(params[:id])
 
     end
 
     patch "/recipes/:id" do
-
+        @recipe = Recipe.find(params[:id])
     end
 
     delete "/recipes/:id" do
+        @recipe = Recipe.find(params[:id])
 
     end
 end
