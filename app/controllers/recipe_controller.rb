@@ -5,12 +5,13 @@ class RecipeController < ApplicationController
         erb :'recipes/index'
     end
 
-    get "/recipes/:id" do
+    get "/recipes/new" do
 
     end
 
-    get "/recipes/new" do
-
+    get "/recipes/:id" do
+        @recipe = Recipe.find(params[:id])
+        erb :'recipes/show'
     end
 
     post "/recipes" do
