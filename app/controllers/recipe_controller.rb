@@ -16,7 +16,9 @@ class RecipeController < ApplicationController
     end
 
     post "/recipes" do
-
+        @recipe = Recipe.new(name: params[:name])
+        @recipe.save
+        redirect "/recipes"
     end
 
     get "/recipes/:id/edit" do
