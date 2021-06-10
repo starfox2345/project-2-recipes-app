@@ -7,6 +7,7 @@ class RecipeController < ApplicationController
 
     get "/recipes/new" do
 
+        erb :'recipes/new'
     end
 
     get "/recipes/:id" do
