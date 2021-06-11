@@ -5,9 +5,11 @@
 <% else %>
 <h5>Ingredients: N/A</h5>
 <% end %>
+<% if @recipe.user == current_user %>
 <a href="/recipes/<%=@recipe.id%>/edit">Edit</a>
 
 <form method="post" action="/recipes/<%=@recipe.id%>">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" value="Delete Recipe">
 </form>
+<% end %>

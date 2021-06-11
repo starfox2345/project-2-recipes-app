@@ -16,7 +16,6 @@ class UserController < ApplicationController
         else
             user.save
             session[:user_id] = user.id
-            binding.pry
             redirect '/recipes'
         end
 
@@ -26,12 +25,17 @@ class UserController < ApplicationController
         erb :'/users/login'
     end
 
-    psot 'login' do
-
+    post '/login' do
+        user = User.find_by_email(params[:email])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect '/recipes'
+        end
+        redirect '/login'
     end
 
     post '/logout' do
         session.clear
-        redirect "/recipes"
+        redirect "/login"
     end
 end
