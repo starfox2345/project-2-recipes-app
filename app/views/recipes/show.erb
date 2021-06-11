@@ -1,2 +1,13 @@
 <h1><%= @recipe.name %></h1>
+<h3><%= @recipe.description %></h3>
+<% if @recipe.ingredient %>
+<h5>Ingredients: <%= @recipe.ingredient.name %></h5>
+<% else %>
+<h5>Ingredients: N/A</h5>
+<% end %>
 <a href="/recipes/<%=@recipe.id%>/edit">Edit</a>
+
+<form method="post" action="/recipes/<%=@recipe.id%>">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete Recipe">
+</form>
