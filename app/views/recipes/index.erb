@@ -1,7 +1,13 @@
 <h1>Recipes</h1>
+<% if logged_in? %>
+<h2>If Logged in show me username: <%= current_user.email %></h2>
+<% end %>
 <ul>
     <% @recipes.each do |recipe| %>
     <li><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></li>
     <% end %>
 </ul>
 
+<form method="post" action="/logout">
+<input type="submit" value="Log Out">
+</form>
