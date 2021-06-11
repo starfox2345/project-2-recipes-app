@@ -3,8 +3,8 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
     create_table :recipes do |t|
       t.string :name
       t.string :ingredient
-      t.string :user
-      t.integer :calories
+      t.string :calorie
+      t.integer :cook_time
       t.timestamps null: false
     end
   end
