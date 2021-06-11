@@ -22,6 +22,14 @@ class UserController < ApplicationController
 
     end
 
+    get '/login' do
+        erb :'/users/login'
+    end
+
+    psot 'login' do
+
+    end
+
     post '/logout' do
         session.clear
         redirect "/recipes"
