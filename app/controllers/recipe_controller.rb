@@ -6,9 +6,7 @@ class RecipeController < ApplicationController
     end
 
     get "/recipes/new" do
-        if !logged_in?
-            redirect '/login'
-        end
+        iredirect_if_not_logged_in
         erb :'recipes/new'
     end
 
@@ -18,9 +16,7 @@ class RecipeController < ApplicationController
     end
 
     post "/recipes" do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
         # @recipe = current_user.recipes.build(params)
         @recipe = Recipe.new(params)
         # recipe.user = current_user
@@ -30,37 +26,33 @@ class RecipeController < ApplicationController
     end
 
     get "/recipes/:id/edit" do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
        @recipe = Recipe.find(params[:id])
-        if @recipe.user != current_user
-        redirect '/recipes'
-        end
+       redirect_if_not_authorized
        erb :'/recipes/edit'
     end
 
     patch "/recipes/:id" do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
         @recipe = Recipe.find(params[:id])
-        if @recipe.user != current_user
-            redirect '/recipes'
-        end
+        redirect_if_not_authorized
         @recipe.update(params["recipe"])
         redirect :"recipes/#{@recipe.id}"
     end
 
     delete "/recipes/:id" do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
         @recipe = Recipe.find(params[:id])
-        if @recipe.user != current_user
-            redirect '/recipes'
-        end
+        redirect_if_not_authorized
         @recipe.destroy
         redirect :"/recipes"
     end
+
+private
+def redirect_if_not_authorized
+    if @recipe.user != current_user
+        redirect '/recipes'
+    end
+end
+
 end
