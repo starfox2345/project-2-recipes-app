@@ -29,8 +29,8 @@ class RecipeController < ApplicationController
 
     patch "/recipes/:id" do
         @recipe = Recipe.find(params[:id])
-        @recipe.update(name: params["name"])
-        binding.pry
+        @recipe.update(params["recipe"])
+        redirect :"recipes/#{@recipe.id}"
     end
 
     delete "/recipes/:id" do
