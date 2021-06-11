@@ -1,5 +1,12 @@
 <h1>Create Recipe</h1>
 <form action="/recipes" method="post">
+
     <p>Recipe Name:<input type="text" name="name"></p>
+    <p>Ingredient:</p>
+    <select name="ingredient_id">
+    <% Ingredient.all.each do |ingredient| %>
+        <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
+    <% end %>
+    </select>
     <input type="submit" value="Create Recipe"/>
 </form>
