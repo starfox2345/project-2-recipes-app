@@ -30,7 +30,7 @@ class RecipeController < ApplicationController
     patch "/recipes/:id" do
         @recipe = Recipe.find(params[:id])
         @recipe.update(name: params["name"])
-        
+        binding.pry
     end
 
     delete "/recipes/:id" do
