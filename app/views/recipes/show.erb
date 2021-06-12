@@ -1,10 +1,6 @@
 <h1><%= @recipe.name %></h1>
 <h3><%= @recipe.description %></h3>
-<% if @recipe.ingredient %>
-<h5>Ingredients: <%= @recipe.ingredient.name %></h5>
-<% else %>
-<h5>Ingredients: N/A</h5>
-<% end %>
+
 <% if @recipe.user == current_user %>
 <a href="/recipes/<%=@recipe.id%>/edit">Edit</a>
 

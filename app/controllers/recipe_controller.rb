@@ -6,7 +6,7 @@ class RecipeController < ApplicationController
     end
 
     get "/recipes/new" do
-        iredirect_if_not_logged_in
+        redirect_if_not_logged_in
         erb :'recipes/new'
     end
 
