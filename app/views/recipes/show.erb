@@ -1,3 +1,11 @@
+<style>
+body {
+    background-color: lightgreen;
+    opacity: 0.9;
+}
+</style>
+<body>
+
 <h1><%= @recipe.name %></h1>
 <h3><%= @recipe.description %></h3>
 
@@ -7,5 +15,11 @@
 <form method="post" action="/recipes/<%=@recipe.id%>">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" value="Delete Recipe">
+</form>
+<% end %>
+
+<% if logged_in? %>
+<form method="post" action="/logout">
+<p class="bg-danger"><input type="submit" value="Log Out"></p>
 </form>
 <% end %>

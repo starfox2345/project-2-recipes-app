@@ -12,6 +12,7 @@ class UserController < ApplicationController
         # if !params.all?{|key, value|} value.blank?} || if User.find_by(email: params[:email])
         # user.email.blank? || user.password.blank? || User.find_by_email(params["email"])
         if !user.save
+            "Incorrect credentials, please try again"
             redirect '/signup'
         else
             user.save
