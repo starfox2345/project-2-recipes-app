@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    "Welcome!"
+    redirect '/login'
   end
 
   helpers do

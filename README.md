@@ -1,4 +1,13 @@
+Welcome to my recipes Sinatra APP!
 
+In this APP, you'll be able to login to or log out of your account.
+
+After logging in, you'll be able to create recipes with a short/long description of
+that recipe.
+
+You'll also be able to modify the recipe if there's any changes.
+
+If you don't like the recipe or it doesn't seem right you can also delete it.
 
 
 
