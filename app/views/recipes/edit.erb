@@ -13,7 +13,7 @@ body {
 <form action="/recipes/<%=@recipe.id%>" method="post">
 <input type="hidden" name="_method" value="patch" />
     <p>Recipe:<input type="text" name="recipe[name]" value="<%=@recipe.name%>"></p>
-    <p>Description:<input type="text" name="recipe[description]" value="<%=@recipe.description%>"></p>
+    <p>Description:<textarea type="text" name="recipe[description]" value="<%=@recipe.description%>"></textarea></p>
  
 
 <input type="submit" value="Modify Recipe" id="submit"/>
