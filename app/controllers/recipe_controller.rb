@@ -19,10 +19,14 @@ class RecipeController < ApplicationController
         redirect_if_not_logged_in
         # @recipe = current_user.recipes.build(params)
         @recipe = Recipe.new(params)
+        if @recipe.name.blank? || @recipe.description.blank?
+            redirect :"/recipes/new"
+        else
         # recipe.user = current_user
         @recipe.user_id = session[:user_id]
         @recipe.save
         redirect :"/recipes"
+        end
     end
 
     get "/recipes/:id/edit" do
