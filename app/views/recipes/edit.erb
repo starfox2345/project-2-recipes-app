@@ -9,6 +9,7 @@ body {
 <h3>Editing Editing Editing Editing</h3><br>
 <h1><%= @recipe.name %></h1>
 
+
 <form action="/recipes/<%=@recipe.id%>" method="post">
 <input type="hidden" name="_method" value="patch" />
     <p>Recipe:<input type="text" name="recipe[name]" value="<%=@recipe.name%>"></p>
