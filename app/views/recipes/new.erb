@@ -1,4 +1,13 @@
-<h1>Create Recipe</h1>
+<li><a href="/recipes">Recipes</a></li>
+
+<style>
+body {
+    background-color: orange;
+    opacity: 0.9;
+}
+</style>
+<body>
+<h1 class="bg-color: pink">Create Recipe</h1>
 <form action="/recipes" method="post">
 
     <p>Recipe Name:<input type="text" name="name"></p>
@@ -7,3 +16,14 @@
     
     <input type="submit" value="Create Recipe"/>
 </form>
+<br><br><br><br>
+
+<% if logged_in? %>
+<form method="post" action="/logout">
+<p class="bg-danger"><input type="submit" value="Log Out"></p>
+<% else %>
+<h3 class="bg-danger"><a href="/signup">Sign up</a></h3>
+</form>
+<% end %>
+
+</body>

@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
     redirect '/login'
   end
 
+  not_found do
+    status 404
+    erb :error
+  end
+
   helpers do
     def current_user
       @current_user ||= User.find_by(id: session[:user_id])

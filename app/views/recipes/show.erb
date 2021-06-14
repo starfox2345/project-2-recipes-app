@@ -1,3 +1,6 @@
+<li><a href="/recipes">Recipes</a></li>
+<li><a href="/recipes/new">New Recipe</a></li>
+
 <style>
 body {
     background-color: lightgreen;
@@ -21,5 +24,7 @@ body {
 <% if logged_in? %>
 <form method="post" action="/logout">
 <p class="bg-danger"><input type="submit" value="Log Out"></p>
+<% else %>
+<h3 class="bg-danger"><a href="/signup">Sign up</a></h3>
 </form>
 <% end %>
